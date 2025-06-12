@@ -1,13 +1,13 @@
-# Sahbi - Your AI Friend in the Fight Against Scams
+# El MatriX - Your AI Friend in the Fight Against Scams
 
 **Tagline:** Play the game. Beat the scam.
 
-![El Moufatteche Feature](moufatteche-webapp/static/moufatteche.png) 
+![El MatriX Feature](El-Matrix-Doc-Verification/static/moufatteche.png) 
 <!-- Make sure this path is correct if you change the folder names -->
 
 ## Elevator Pitch
 
-Digital scams are a growing threat in Tunisia, costing people their savings and peace of mind, with traditional awareness campaigns often failing to engage the most vulnerable. Our solution is **Sahbi**, an interactive educational game that transforms scam prevention from a boring lecture into an empowering experience. Instead of just reading about threats, users learn by doing—identifying red flags in realistic, AI-generated scenarios within a safe, gamified environment. Powered by Google's Gemini, Sahbi creates culturally authentic Tunisian scams that evolve with real-world trends, ensuring the training is always relevant. The core loop is simple yet powerful: play the game, earn points, and spend those points to use "El Moufatteche," our real-world AI assistant, to analyze suspicious messages or documents you actually receive. Sahbi isn't just a game; it's a dynamic training ground that turns potential victims into vigilant defenders.
+Cyber scams are an emerging threat in Tunisia, where victims lose their life savings and peace of mind, and conventional awareness campaigns are not effective at reaching the most at-risk populations. Our solution, El MatriX, is an experiential learning game that reinvents scam prevention from a boring lecture to an empowering experience. Rather than merely studying threats, users learn by doing through experiential learning: recognizing suspicious indicators in real-life, AI-generated scenarios in a secure, gamified setting. Using Google's Gemini, El MatriX generates culturally specific Tunisian scams that adapt according to emerging trends in the real world, thereby making the training continually applicable. The core loop is straightforward and compelling: play the game, get points, and spend the points to call upon "El Moufatteche," our real-world AI assistant, to help analyze suspicious messages or documents that you encounter. El MatriX is not just a game; it is an interactive training field that transforms potential victims into aware defenders, thereby forging a more secure digital Tunisia, one player at a time.
 
 ## Core Features
 
@@ -32,8 +32,8 @@ Digital scams are a growing threat in Tunisia, costing people their savings and 
 
 The repository is organized into two main components:
 
--   **/sahbi-game-backend:** Contains the Python Flask server that communicates with the Roblox game. It receives requests for new scenarios and uses the Gemini API to generate dynamic scam/legitimate text messages.
--   **/moufatteche-webapp:** Contains the standalone Flask web application for document verification. This includes the HTML, CSS, and JavaScript for the frontend, and the Python backend for handling file uploads and multimodal analysis with Gemini.
+-   **/El-Matrix-Doc-Verification:** Contains the Python Flask server that communicates with the Roblox game. It receives requests for new scenarios and uses the Gemini API to generate dynamic scam/legitimate text messages.
+-   **/El-Matrix-Backend:** Contains the standalone Flask web application for document verification. This includes the HTML, CSS, and JavaScript for the frontend, and the Python backend for handling file uploads and multimodal analysis with Gemini.
 
 ## Setup and Installation
 
@@ -43,7 +43,7 @@ To run these projects, you will need a Replit account and a Google Gemini API ke
 2.  **Get a Gemini API Key:** Obtain your API key from [Google AI Studio](https://ai.google.dev/studio).
 3.  **Clone the Repository (Optional):** You can clone this repository to your local machine or directly to Replit.
 4.  **Set up Each Backend:**
-    -   Create a new **Flask** Repl for each backend (`sahbi-game-backend` and `moufatteche-webapp`).
+    -   Create a new **Flask** Repl for each backend (`El-Matrix-Backend` and `El-Matrix-Doc-Verification`).
     -   Upload the respective files into each Repl.
     -   In the "Secrets" tab of each Repl, create a new secret with the key `GEMINI_API_KEY` and paste your API key as the value.
     -   Click "Run". The server will start, and a public URL will be provided.
