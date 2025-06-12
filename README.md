@@ -1,6 +1,6 @@
 # El MatriX - Your AI Friend in the Fight Against Scams
 
-**Tagline:** Play the game. Beat the scam.
+**Tagline:** Sometimes, you have to be “nesnes” like Beji to discover the truth.
 
 ![El MatriX Feature](El-Matrix-Doc-Verification/static/moufatteche.png) 
 <!-- Make sure this path is correct if you change the folder names -->
