@@ -1,0 +1,346 @@
+:root {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --highlight-color: #bfff00;
+  --border-glow-color: rgba(191, 255, 0, 0.5);
+  --button-bg-color: #2c2c2e;
+  --gauge-bg: #444;
+  --gauge-fill: var(--highlight-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 2rem;
+
+    /* --- THE FIX --- */
+    /* This makes the body a flex container */
+    display: flex;
+    /* This tells it to stack children vertically (like a normal page) */
+    flex-direction: column;
+    /* This horizontally centers everything inside the body */
+    align-items: center;
+    /* This vertically centers the content (great for pages that aren't full) */
+    justify-content: center;
+    /* This ensures the body is at least as tall as the screen */
+    min-height: 100vh;
+    /* This is a best-practice to make padding behave predictably */
+    box-sizing: border-box;
+}
+
+.page {
+  display: none;
+  min-height: 80vh;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* --- Landing Page --- */
+#landing-page .text-section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+#landing-page .highlight {
+  color: var(--highlight-color);
+  font-size: 2rem;
+}
+
+#landing-page .character-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+#landing-page .character-image {
+  width: 250px;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.1));
+}
+
+#landing-page .character-text {
+  max-width: 400px;
+}
+
+/* --- Upload Page --- */
+#upload-page .content-wrapper {
+  align-items: center;
+}
+
+#upload-page .preview-section, #upload-page .options-section {
+  flex: 1;
+}
+
+.file-preview-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 400px;
+  border: 2px dashed var(--highlight-color);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  background-color: #222;
+}
+
+#image-preview {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#preview-text {
+  color: var(--text-color);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--button-bg-color);
+  border: 2px solid var(--highlight-color);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: #aaa;
+  max-width: 400px;
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+
+
+/* --- Main Button --- */
+.main-button {
+  background-color: var(--button-bg-color);
+  color: var(--text-color);
+  border: 2px solid var(--border-glow-color);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--border-glow-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-button:hover {
+  background-color: var(--highlight-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 25px var(--highlight-color);
+}
+
+/* --- Results Page --- */
+#results-page {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #444;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+.report-header h2 { font-size: 2.5rem; line-height: 1.2; }
+.report-meta {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: right;
+}
+.report-meta .highlight { color: var(--highlight-color); font-weight: 700; }
+
+.report-body {
+  display: flex;
+  gap: 3rem;
+}
+.report-details { flex: 2; }
+.report-summary { flex: 1; }
+
+.detail-block h4 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+.detail-block ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.detail-block li {
+  margin-bottom: 0.5rem;
+}
+
+.gauges-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.gauge-wrapper {
+  text-align: center;
+}
+.gauge {
+  width: 150px;
+  height: 75px;
+  position: relative;
+  margin: 0 auto;
+}
+.gauge-bg, .gauge-fill {
+  width: 100%;
+  height: 200%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.gauge-bg {
+  background-color: var(--gauge-bg);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+}
+.gauge-fill {
+  background: conic-gradient(from 0.75turn, var(--gauge-fill) calc(var(--gauge-value, 0) * 1%), var(--gauge-bg) 0);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%);
+  transition: --gauge-value 1s ease-in-out;
+}
+.gauge-label {
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+
+/* --- Loader --- */
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--highlight-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  display: none;
+  margin-left: 10px;
+}
+
+.main-button.loading .button-text {
+  display: none;
+}
+.main-button.loading .loader {
+  display: block;
+  margin-left: 0;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@media (max-width: 800px) {
+
+    /* --- General Layout & Fonts --- */
+    body {
+        /* Reduce padding on small screens */
+        padding: 1rem;
+    }
+
+    .content-wrapper {
+        /* Stack elements vertically instead of side-by-side */
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+
+
+    /* --- Landing Page Specifics --- */
+    #landing-page .text-section, 
+    #landing-page .character-text {
+        /* Center text on mobile for a cleaner look */
+        text-align: center;
+    }
+
+    #landing-page .character-section {
+        /* Stack the character image on top of its text */
+        flex-direction: column;
+    }
+
+
+    /* --- Upload Page Specifics --- */
+    #upload-page .file-preview-box {
+        /* Make the upload box slightly smaller on mobile */
+        width: 100%;
+        height: 300px;
+    }
+
+
+    /* --- Results Page Specifics --- */
+    #results-page .report-header,
+    #results-page .report-body {
+        /* Stack all major sections vertically */
+        flex-direction: column;
+    }
+
+    #results-page .report-header {
+        /* Make header elements align left */
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    #results-page .report-meta {
+        /* Make the meta box full-width and left-aligned */
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    #results-page .report-header h2 {
+        font-size: 1.8rem;
+    }
+
+    #results-page .gauges-container {
+        /* Ensure gauges have enough space */
+        justify-items: center;
+    }
+}

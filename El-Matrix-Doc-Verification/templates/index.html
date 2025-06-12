@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Moufatteche - Document Verification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-bar">
+        <!-- You can add your top bar elements here if needed -->
+    </header>
+
+    <!-- ===== LANDING PAGE ===== -->
+    <section id="landing-page" class="page active">
+        <div class="content-wrapper">
+            <div class="text-section">
+                <h1>Suspecting a document and needing to verify it?</h1>
+                <h2 class="highlight">Check it with "El Moufatteche" Feature</h2>
+            </div>
+            <div class="character-section">
+                <img src="{{ url_for('static', filename='moufatteche.png') }}" alt="El Moufatteche character" class="character-image">
+                <div class="character-text">
+                    <p>Upload any picture or document you've received and have suspicions around. El Moufatteche will verify it and provide you with an accurate feedback!</p>
+                    <button id="start-upload-btn" class="main-button">Upload Document</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== UPLOAD PAGE ===== -->
+    <section id="upload-page" class="page">
+        <form id="upload-form" class="content-wrapper">
+            <div class="preview-section">
+                <h3>Document preview</h3>
+                <label for="file-input" class="file-preview-box">
+                    <img id="image-preview" src="#" alt="Image Preview">
+                    <span id="preview-text">Click to upload</span>
+                </label>
+                <input type="file" id="file-input" name="document" accept="image/*,application/pdf" required>
+            </div>
+            <div class="options-section">
+                <div class="form-group">
+                    <label for="doc-type">Document Type:</label>
+                    <select id="doc-type" name="doc_type" class="custom-select" required>
+                        <option value="" disabled selected>Selected Option</option>
+                        <option value="National ID Card">National ID Card</option>
+                        <option value="Birth Certificate">Birth Certificate</option>
+                        <option value="Legal Document">Legal Document</option>
+                        <option value="Financial Document">Financial Document (Cheque, Bank Statement)</option>
+                        <option value="Screenshot">Screenshot (WhatsApp, Facebook)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="priority-level">Priority Level:</label>
+                    <select id="priority-level" name="priority" class="custom-select" required>
+                        <option value="" disabled selected>Selected Option</option>
+                        <option value="urgent">Urgent - 350 points</option>
+                        <option value="standard">Standard - 200 points</option>
+                    </select>
+                </div>
+                <p class="info-text">Urgent documents take less time to be analyzed. Both options provide the same high accuracy results.</p>
+                <button type="submit" id="verify-btn" class="main-button">
+                    <span class="button-text">Verify Document</span>
+                    <div class="loader" id="loader"></div>
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- ===== RESULTS PAGE ===== -->
+    <section id="results-page" class="page">
+        <div class="report-header">
+            <h2 id="report-title">ANALYSIS REPORT</h2>
+            <div class="report-meta">
+                <p><strong>Document Reference:</strong> <span id="ref-id"></span></p>
+                <p><strong>Analysis Date:</strong> <span id="analysis-date"></span></p>
+                <p><strong>Status:</strong> <span id="status" class="highlight"></span></p>
+            </div>
+        </div>
+        <div class="report-body">
+            <div class="report-details" id="report-details-list">
+                <!-- Details will be injected by JS -->
+            </div>
+            <div class="report-summary">
+                <h3>Summary</h3>
+                <div class="gauges-container" id="gauges-container">
+                    <!-- Gauges will be injected by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
